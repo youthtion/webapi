@@ -15,6 +15,7 @@ public class Tests
 
     [TestCase("USD")]
     [TestCase("TWD")]
+    // 測試可用的幣別格式
     public void TestCurrencyFormatCorrect(string _currency)
     {
         TestOrderData.Currency = _currency;
@@ -25,6 +26,7 @@ public class Tests
 
     [TestCase("JPY")]
     [TestCase("")]
+    // 測試不可用的幣別格式
     public void TestCurrencyFormatIncorrect(string _currency)
     {
         TestOrderData.Currency = _currency;
@@ -37,6 +39,7 @@ public class Tests
     [TestCase("USD", -33)]
     [TestCase("TWD", 567)]
     [TestCase("TWD", 0)]
+    // 測試匯率轉換正確
     public void TestCurrencyExchangeCorrect(string _currency, int _price)
     {
         TestOrderData.Currency = _currency;
@@ -57,6 +60,7 @@ public class Tests
     [TestCase("USD", 789)]
     [TestCase("TWD", -5)]
     [TestCase("TWD", 7)]
+    // 測試匯率轉換錯誤
     public void TestCurrencyExchangeIncorrect(string _currency, int _price)
     {
         TestOrderData.Currency = _currency;
@@ -78,6 +82,7 @@ public class Tests
     [TestCase("TWD", 2000)]
     [TestCase("USD", 64)]
     [TestCase("USD", -1)]
+    // 測試價格在上限範圍
     public void TestPriceLimit(string _currency, int _price)
     {
         TestOrderData.Currency = _currency;
@@ -89,6 +94,7 @@ public class Tests
 
     [TestCase("TWD", 2001)]
     [TestCase("USD", 70)]
+    // 測試價格超過上限範圍
     public void TestPriceLimitOver(string _currency, int _price)
     {
         TestOrderData.Currency = _currency;
@@ -101,6 +107,7 @@ public class Tests
     [TestCase("Apple")]
     [TestCase("Apple Pie")]
     [TestCase("Alien Alien Alien")]
+    // 測試英文名字邏輯正確
     public void TestNameCheck(string _name)
     {
         TestOrderData.Name = _name;
@@ -113,6 +120,7 @@ public class Tests
     [TestCase("ApplePie")]
     [TestCase("Alien AlienAlien")]
     [TestCase("Alie123n")]
+    // 測試英文名字邏輯錯誤
     public void TestNameCheckIncorrect(string _name)
     {
         TestOrderData.Name = _name;
