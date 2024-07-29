@@ -1,6 +1,6 @@
 services:
   orders:
-    image: img_orders
+    image: youthtion/img_orders:version_01
     container_name: container_orders
     ports:
       - 80:8080
